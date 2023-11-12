@@ -12,6 +12,8 @@ O projeto utiliza Playwright, uma ferramenta de automação de teste end-to-end 
 - **pages/**: Páginas e objetos de página utilizados nos testes.
 - **components/**: Componentes e utilidades reutilizáveis.
 
+Usando desta forma a manutenção dos códigos ficam mais fáceis, códigos mais limpos e seguem boas práticas.
+
 ## Configuração do Projeto
 
 1. **Instalação de Dependências:**
