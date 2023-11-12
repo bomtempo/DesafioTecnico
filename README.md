@@ -25,52 +25,15 @@ Usando desta forma a manutenção dos códigos ficam mais fáceis, códigos mais
 
 
 ## Casos de Teste
-Validar Integridade da Página Principal
+### Validar Integridade da Página Principal
 Testa se a página principal do site carrega corretamente.
+Valida a integridade da página validando pelo título da página.
+Valida se o botão de pesquisa está habilitado.
 
-// tests/seuArquivoDeTestes.ts
-
-import { test } from '@playwright/test';
-import { PesquisaPage } from '../pages/pesquisaPage';
-import { baseUrl } from '../playwright.config';
-
-test('Validar integridade da página principal', async ({ page }) => {
-  const pesquisaPage = new PesquisaPage(page, baseUrl);
-  await pesquisaPage.validatePageIntegrity();
-});
-
-
-## Pesquisar sem Inserir Termos
+### Pesquisar sem Inserir Termos
 Testa se é possível realizar uma pesquisa sem inserir termos.
+Valida se ao pressionar pesquisar, aparecem todos as postagens do blog.
 
-// tests/seuArquivoDeTestes.ts
-
-import { test } from '@playwright/test';
-import { PesquisaPage } from '../pages/pesquisaPage';
-import { baseUrl } from '../playwright.config';
-
-test('Pesquisar sem inserir termos', async ({ page }) => {
-  const pesquisaPage = new PesquisaPage(page, baseUrl);
-  await page.goto(baseUrl);
-  await pesquisaPage.performSearchWithoutTerms();
-});
-
-
-## Pesquisar com Termo Inválido
+### Pesquisar com Termo Inválido
 Testa se uma mensagem adequada é exibida ao pesquisar com um termo inválido.
-
-// tests/seuArquivoDeTestes.ts
-
-import { test } from '@playwright/test';
-import { PesquisaPage } from '../pages/pesquisaPage';
-import { searchTerms } from '../components/utils';
-import { baseUrl } from '../playwright.config';
-
-test('Pesquisar com termo inválido', async ({ page }) => {
-  const pesquisaPage = new PesquisaPage(page, baseUrl);
-  await page.goto(baseUrl);
-  await pesquisaPage.clickSearchButton();
-  await pesquisaPage.fillSearchField(searchTerms.invalido);
-  await pesquisaPage.clickSubmitButton();
-  await pesquisaPage.validateNoResultsPage();
-});
+Valida que não trouxe nenhuma postagem.
